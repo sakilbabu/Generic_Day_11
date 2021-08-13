@@ -1,19 +1,19 @@
 void main() {
   List<String> list1 = [];
   List<String> list2;
-  Response<String> response = Response(isSuccess: true, data: "Taka dici vai");
+  Response<String,int> response = Response(isSuccess: true, data: "Taka dici vai",dataX: 10000);
   print(response.error);
-  Response<String> errorResponse =
-      Response(isSuccess: false, error: "Taka nai vai");
-  print(errorResponse.error);
+  
 }
 
-class Response<T> {
+class Response<T,X> {
   final bool isSuccess;
   final T? data;
+  final X? dataX;
+
   final String? error;
 
-  Response({required this.isSuccess, this.data, this.error});
+  Response({required this.isSuccess, this.data, this.error,this.dataX});
 
   getData() {
     return data;
